@@ -37,7 +37,7 @@ async function loadProject() {
 
     const projectUrl = document.getElementById("project-url");
     projectUrl.textContent = project.url;
-    //projectUrl.href = project.url;
+    projectUrl.href = project.url;
 
     document.getElementById("project-description").textContent = project.description;
 
