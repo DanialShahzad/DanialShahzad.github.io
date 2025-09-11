@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\Thumbnail",
+    "\\assets\\Videos",
+    "\\assets\\Videos\\PortfolioEdited"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\assets\\Thumbnail\\flappy_dragon.png",
   "PreviewInSolutionExplorer": false
 }
