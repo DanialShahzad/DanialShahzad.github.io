@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <title>Portfolio Details - Danial Shahzad Projects</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -14,7 +14,9 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +36,16 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<style>
+  #project-images img, video  {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+background: #000; /* optional: fill empty space */
+    border-radius: 8px;
+  }
+</style>
+  
 </head>
 
 <body>
@@ -47,22 +59,16 @@
         <div class="row">
 
           <div class="col-lg-8">
-            <h2 class="portfolio-title">This is an example of portfolio detail</h2>
+            <h2 class="portfolio-title" id="project-title">Loading...</h2>
 
             <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
+              <div class="swiper-wrapper align-items-center" id="project-images">
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
-                </div>
+                <!-- Images will be injected here -->
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-                </div>
+                <div class="swiper-slide"> <img src="assets/img/portfolio/portfolio-details-1.jpg" alt=""> </div>
+                <div class="swiper-slide"> <img src="assets/img/portfolio/portfolio-details-2.jpg" alt=""> </div>
+                <div class="swiper-slide"> <img src="assets/img/portfolio/portfolio-details-3.jpg" alt=""> </div>
 
               </div>
               <div class="swiper-pagination"></div>
@@ -73,14 +79,14 @@
           <div class="col-lg-4 portfolio-info">
             <h3>Project information</h3>
             <ul>
-              <li><strong>Category</strong>: Web design</li>
-              <li><strong>Client</strong>: ASU Company</li>
-              <li><strong>Project date</strong>: 01 March, 2020</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              <li><strong>Category</strong>: <span id="project-category"></span></li>
+              <li><strong>Client</strong>: <span id="project-client"></span></li>
+              <li><strong>Project date</strong>: <span id="project-date"></span></li>
+              <li><strong>Project URL</strong>: <a href="#" id="project-url" target="_blank"></a></li>
             </ul>
 
-            <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+            <p id="project-description">
+              Loading Description...
             </p>
           </div>
 
@@ -88,7 +94,6 @@
 
       </div>
     </div><!-- End Portfolio Details -->
-
   </main><!-- End #main -->
 
   <div class="credits">
@@ -96,7 +101,6 @@
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
   </div>
 
   <!-- Vendor JS Files -->
@@ -110,6 +114,9 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/portfolio_data_handler.js"></script>
+
+
 
 </body>
 

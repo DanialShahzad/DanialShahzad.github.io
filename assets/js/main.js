@@ -5,7 +5,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -48,7 +48,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -57,7 +57,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '#navbar .nav-link', function(e) {
+  on('click', '#navbar .nav-link', function (e) {
     let section = select(this.hash)
     if (section) {
       e.preventDefault()
@@ -90,7 +90,7 @@
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
-        setTimeout(function() {
+        setTimeout(function () {
           sections.forEach((item) => {
             item.classList.remove('section-show')
           })
@@ -129,7 +129,7 @@
           }
         })
 
-        setTimeout(function() {
+        setTimeout(function () {
           initial_nav.classList.add('section-show')
         }, 350);
 
@@ -146,7 +146,7 @@
     new Waypoint({
       element: skilsContent,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = select('.progress .progress-bar', true);
         progress.forEach((el) => {
           el.style.width = el.getAttribute('aria-valuenow') + '%'
@@ -197,9 +197,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -217,6 +217,7 @@
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
+
   });
 
   /**
@@ -225,23 +226,37 @@
   const portfolioDetailsLightbox = GLightbox({
     selector: '.portfolio-details-lightbox',
     width: '90%',
-    height: '90vh'
+    height: '90vh',
   });
 
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+  portfolioDetailsLightbox.on('open', () => {
+    document.querySelectorAll('.gnext.gbtn, .gprev.gbtn').forEach(btn => btn.remove());
+  });
+
+
+  portfolioDetailsLightbox.on('open', () => {
+    // When lightbox opens, attach listeners to the arrows
+    document.querySelectorAll('.gnext.gbtn, .gprev.gbtn').forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".project-video").forEach(video => {
+          video.pause();
+          video.currentTime = 0;
+          console.log("Video stopped because user clicked next/prev button");
+        });
+      });
+    });
+  });
+
+
+  // Global listener for lightbox next/prev arrows
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".gnext.gbtn") || e.target.closest(".gprev.gbtn")) {
+      // Stop & reset all videos
+      document.querySelectorAll(".project-video").forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+        console.log("Video stopped because user clicked lightbox arrow");
+      });
     }
   });
 
